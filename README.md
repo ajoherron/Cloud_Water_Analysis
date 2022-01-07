@@ -12,4 +12,4 @@ Quicklooks.m - Brief plotting script to get an overview sense (a "quick look") o
 
 falcon_quicklooks_v2.m - Similar to the above quicklooks file, but for NASA HU-25 Falcon flights.
 
-longmaster.m - Combines HSLR and RSP dat for all dates of interest.
+longmaster.m - Combines HSLR and RSP data for all dates of interest.
