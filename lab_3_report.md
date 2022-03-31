@@ -218,9 +218,9 @@ Basic Markdown Guide: https://www.markdownguide.org/basic-syntax/
 | pq: small       | 0.670         | 0.860          | 4.02         |
 | pq: medium      | 0.466         | 0.537          | 3.94         |
 | pq: large       | 1.77          | 1.94           | 9.25         |
-| pq_fast: small  |               |                |              |           
-| pq_fast: medium |               |                |              |
-| pq_fast: large  |               |                |              |
+| pq_fast: small  | 0.591         | 0.673          | 6.83         |           
+| pq_fast: medium | 3.67          | 4.32           | 15.8         |
+| pq_fast: large  | 4.53          | 4.89           | 164          |
 
 
 | max_income      |  Minimum      | Median         | Maximum      |
@@ -231,9 +231,9 @@ Basic Markdown Guide: https://www.markdownguide.org/basic-syntax/
 | pq: small       | 0.648         | 0.796          | 3.63         |
 | pq: medium      | 0.426         | 0.505          | 3.72         |
 | pq: large       | 5.61          | 6.54           | 10.6         |
-| pq_fast: small  |               |                |              |          
-| pq_fast: medium |               |                |              |
-| pq_fast: large  |               |                |              |
+| pq_fast: small  | 3.66          | 3.90           | 10.7         |          
+| pq_fast: medium | 0.63          | 0.752          | 4.94         |
+| pq_fast: large  | 4.80          | 5.82           | 15.2         |
 
 
 | anna            |  Minimum      | Median         | Maximum      |
@@ -244,16 +244,32 @@ Basic Markdown Guide: https://www.markdownguide.org/basic-syntax/
 | pq: small       | 0.791         | 0.113          | 1.75         |
 | pq: medium      | 3.72          | 3.89           | 4.60         |
 | pq: large       | 3.97          | 4.85           | 7.79         |
-| pq_fast: small  |               |                |              |           
-| pq_fast: medium |               |                |              |
-| pq_fast: large  |               |                |              |
+| pq_fast: small  | 0.281         | 0.342          | 7.63         |           
+| pq_fast: medium | 0.403         | 0.460          | 3.25         |
+| pq_fast: large  | 0.674         | 0.795          | 3.44         |
 
 2. Comparison of results:
 
+Generally, I noticed that the difference between small and medium files was smaller than the difference between medium and large files. Additionally, after running certain files multiple times, I noticed some degree of randomness, as running the same file twice would not yield the same result. As general rules, large files took longer than medium files which took longer than small files (with some minor exceptions). 
 
+For the avg_income query, csv files were noticeably slower than parquet files.
+
+For the max_income query, csv files were slightly slower than parquet files.
+
+Lastly, for the anna query, csv files were slower than parquet for the large files but faster for the medium and small files.
 
 3. What I attempted to improve performance for each query:
 
+For the avg_income query, I sorted the dataframe by the zipcode column. I thought that, because the query grouped results by zipcode, this sorting would expedite the group by step.
 
+Next, for the max_income query, I sorted the dataframe by the last_name column. Similarly to the avg_income query, I chose this column because the max_income query involves a group by step that uses last_name. 
+
+Lastly, for the anna query, I sorted the dataframe by the first_name column. However, this query didn't involve a group by step. I chose the first name column because the query sorted by first name, and we only cared about rows where the first name is Anna, which should be higher up in the data frame if the first_name column is sorted alphabetically (and Anna would be one of the earlier names).
 
 4. What worked, and what didn't work:
+
+For the avg_income query, the "fast" files (sorted by zip code) were faster for the small file, but slower for the medium and large files.
+
+For the max_income query, the "fast" files (sorted by last name) were faster for the large file, but slower for the medium and small files.
+
+For the anna query, the "fast" files (sorted by first name) were substantially faster than the regular parquet files.
