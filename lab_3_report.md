@@ -215,10 +215,10 @@ Basic Markdown Guide: https://www.markdownguide.org/basic-syntax/
 | csv: small      | 0.783         | 3.49           | 8.37         |
 | csv: medium     | 0.727         | 0.824          | 9.04         |
 | csv: large      | 7.21          | 10.2           | 16.7         |
-| pq: small       |               |                |              |
-| pq: medium      |               |                |              |
-| pq: large       |               |                |              |
-| pq_fast: small  |               |                |              |              
+| pq: small       | 0.670         | 0.860          | 4.02         |
+| pq: medium      | 0.466         | 0.537          | 3.94         |
+| pq: large       | 1.77          | 1.94           | 9.25         |
+| pq_fast: small  |               |                |              |           
 | pq_fast: medium |               |                |              |
 | pq_fast: large  |               |                |              |
 
@@ -228,10 +228,10 @@ Basic Markdown Guide: https://www.markdownguide.org/basic-syntax/
 | csv: small      | 0.664         | 0.880          | 8.63         |
 | csv: medium     | 0.650         | 0.789          | 8.23         |
 | csv: large      | 6.81          | 7.01           | 15.7         |
-| pq: small       |               |                |              |
-| pq: medium      |               |                |              |
-| pq: large       |               |                |              |
-| pq_fast: small  |               |                |              |              
+| pq: small       | 0.648         | 0.796          | 3.63         |
+| pq: medium      | 0.426         | 0.505          | 3.72         |
+| pq: large       | 5.61          | 6.54           | 10.6         |
+| pq_fast: small  |               |                |              |          
 | pq_fast: medium |               |                |              |
 | pq_fast: large  |               |                |              |
 
@@ -241,10 +241,10 @@ Basic Markdown Guide: https://www.markdownguide.org/basic-syntax/
 | csv: small      | 0.0801        | 0.104          | 7.03         |
 | csv: medium     | 0.312         | 0.337          | 7.63         |
 | csv: large      | 7.21          | 10.2           | 19.2         |
-| pq: small       |               |                |              |
-| pq: medium      |               |                |              |
-| pq: large       |               |                |              |
-| pq_fast: small  |               |                |              |              
+| pq: small       | 0.791         | 0.113          | 1.75         |
+| pq: medium      | 3.72          | 3.89           | 4.60         |
+| pq: large       | 3.97          | 4.85           | 7.79         |
+| pq_fast: small  |               |                |              |           
 | pq_fast: medium |               |                |              |
 | pq_fast: large  |               |                |              |
 
