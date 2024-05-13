@@ -57,27 +57,18 @@ plot(time_utc, cloud_ot_863nm,'linewidth',2)
 grid on
 ylabel('Optical Thickness','Fontsize',14)
 ylim([0 70])
-%xlim([19.1 19.5])
-%xlim([19.5 20])
 xlim([19.59 19.68])
-%xlim([19.74 19.8])
-%xlim([19.85 19.91])
 title(page1_title,'Fontsize',14)
 
 %Effective Radius subplot
 subplot(6,1,2);
-%plot(time_utc, cloud_reff_nk_1588nm, 'linewidth',2)
 hold on
 grid on
 plot(time_utc, cloud_reff_pol_863nm,'linewidth',2)
 plot(time_utc, cloud_reff_2260,'linewidth',2)
 ylabel('R_e_f_f (\mum)','Fontsize',14)
 ylim([0 40])
-%xlim([19.1 19.5])
-%xlim([19.5 20])
 xlim([19.59 19.68])
-%xlim([19.74 19.8])
-%xlim([19.85 19.91])
 legend({'Polarized 863nm','NK 2260nm'},'Fontsize',10,'Location','northeast')
 
 %Effective Variance subplot
@@ -86,11 +77,7 @@ plot(time_utc, cloud_veff_pol_863nm,'linewidth',2)
 grid on
 ylabel('V_e_f_f','Fontsize',14)
 ylim([0 .4])
-%xlim([19.1 19.5])
-%xlim([19.5 20])
 xlim([19.59 19.68])
-%xlim([19.74 19.8])
-%xlim([19.85 19.91])
 
 %Water Vapor subplot
 subplot(6,1,4);
@@ -101,11 +88,7 @@ plot(time_utc, wv_column_pol, 'LineWidth',2)
 plot(time_utc, wv_column, 'LineWidth', 3)
 ylabel('W.V. (cm atm^-^1)','Fontsize',14)
 ylim([-1 4])
-%xlim([19.1 19.5])
-%xlim([19.5 20])
 xlim([19.59 19.68])
-%xlim([19.74 19.8])
-%xlim([19.85 19.91])
 legend({'Radiance Water Vapor Retrieval','Polarized Water Vapor Retrieval','Net Water Vapor Retrieval'},'FontSize',6,'Location','northeast')
 %set(gca,'linewidth',1)
 
@@ -121,11 +104,7 @@ plot(jgps_time, cloud_height_j,'linewidth',2)
 ylabel('C.T.H. (m)','Fontsize',16)
 legend({'RSP','HSRL','Johns Data'},'FontSize',6,'Location','northeast')
 ylim([0 8000])
-%xlim([19.1 19.5])
-%xlim([19.5 20])
 xlim([19.59 19.68])
-%xlim([19.74 19.8])
-%xlim([19.85 19.91])
 
 %Cloud Top Temperature
 cth = cloud_top_height
@@ -158,14 +137,8 @@ plot(gps_time, ctt,'Linewidth',2)
 grid on
 xlabel('Time (UTC)','Fontsize',14)
 ylabel('C.T.T. (K)','Fontsize',14)
-%xlim([19.1 19.5])
-%xlim([19.5 20])
 xlim([19.59 19.68])
-%xlim([19.74 19.8])
-%xlim([19.85 19.91])
 
-%saveas(figure(1),'20200227_ot_195_200_pg1.png')
-%saveas(figure(1),'20200227_ot_191_195_pg1.png')
 saveas(figure(1),'20200227_1959_1968_pg1.png')
 saveas(figure(1),'20200227_1974_1980_pg1.png')
 saveas(figure(1),'20200227_1985_1991_pg1.png')
@@ -185,11 +158,7 @@ ylabel('Extinction (km^-^1)','Fontsize',14)
 title('2/27/2020 Page 2','Fontsize',20)
 hold on
 ext_smooth = movmean(ext,5)
-%xlim([19.1 19.5])
-%xlim([19.5 20])
 xlim([19.59 19.68])
-%xlim([19.74 19.8])
-%xlim([19.85 19.91])
 
 %Extinction Cross-Section subplot
 ncfile = 'xsection_table.nc'
@@ -223,11 +192,7 @@ subplot(5,1,2);
 plot(time_utc, ext_cs)
 grid on
 ylabel('Ext. XS (\mum^2)','Fontsize',14)
-%xlim([19.1 19.5])
-%xlim([19.5 20])
 xlim([19.59 19.68])
-%xlim([19.74 19.8])
-%xlim([19.85 19.91])
 
 %Droplet Concentration subplot
 %Grosvenor Eq 11
@@ -253,11 +218,7 @@ grid on
 ylabel('N_d (cm^-^3)','Fontsize',14)
 legend({'MODIS w/ NK Reff 2260nm','MODIS w/ Pol Reff 863nm'},'FontSize',8,'Location','northeast')
 %title('2/27/2020 Droplet Concentration','Fontsize',20)
-%xlim([19.1 19.5])
-%xlim([19.5 20])
 xlim([19.59 19.68])
-%xlim([19.74 19.8])
-%xlim([19.85 19.91])
 
 %Colocate ext and ext_cs variables 
 
@@ -279,11 +240,7 @@ scatter(time_utc, nd_c,'*')
 grid on
 ylabel('N_d (cm^-^3)','Fontsize',14)
 legend({'RSP-HSRL Method'},'FontSize',8,'Location','northeast')
-%xlim([19.1 19.5])
-%xlim([19.5 20])
 xlim([19.59 19.68])
-%xlim([19.74 19.8])
-%xlim([19.85 19.91])
 
 subplot(5,1,5)
 scatter(time_utc, nd_c,'*','Linewidth',2)
@@ -294,22 +251,12 @@ scatter(time_utc, RSD_ND1,'Linewidth',2)
 grid on
 ylabel('N_d (cm^-^3)','Fontsize',24)
 legend({'Combined RSP-HSRL Method','Radiometric "MODIS" Method w/ Pol Reff 863nm'},'FontSize',18,'Location','northeast')
-%xlim([19.1 19.5])
-%xlim([19.5 20])
 xlabel('Time (UTC)','Fontsize',24)
 title('Droplet Concentration Comparison 2/27/2020','Fontsize',30)
 set(gca, 'YScale', 'log')
 xlim([19.59 19.68])
-%xlim([19.74 19.8])
-%xlim([19.85 19.91])
 
-%saveas(figure(1), '20200227_smooth_191_195_pg2.png')
-%saveas(figure(1), '20200227_smooth_195_200_pg2.png')
 saveas(figure(1),'20200227_1959_1968_pg2.png')
-%saveas(figure(1),'20200227_1974_1980_pg2.png')
-%saveas(figure(1),'20200227_1985_1991_pg2.png')
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -337,6 +284,4 @@ p = polyfit(log(x), log(y),1)
 y_hat = exp(p(1) * log(x) + p(2))
 loglog(x, y_hat, 'Linewidth', 3)
 
-
 saveas(figure(1),'20200227_scatterplot_Nd_log_195_200_2260.png')
-
