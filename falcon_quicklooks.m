@@ -9,10 +9,6 @@ grid on
 ylabel('Altitude (m)','Fontsize',24)
 title('2/27/2020 Falcon Data Quicklooks','Fontsize',30)%xlim([18.5 20.75])
 xlim([18.5 20.75])
-%xlim([19.5 20])
-%xlim([19.1 20])
-%xlim([19.1 19.45])
-%xlim([19.45 20])
 
 %Plot 2
 subplot(4,1,2)
@@ -24,10 +20,6 @@ set(gca, 'YScale', 'log')
 grid on
 ylabel('N_d (cm^-^3)','Fontsize',24)
 xlim([18.5 20.75])
-%xlim([19.5 20])
-%xlim([19.1 20])
-%xlim([19.1 19.45])
-%xlim([19.45 20])
 
 %Text for profiles
 txt1 = 'P1'
@@ -68,10 +60,6 @@ ax.FontSize = 18
 grid on
 ylabel('LWC (g/m^3)','Fontsize',24)
 xlim([18.5 20.75])
-%xlim([19.5 20])
-%xlim([19.1 20])
-%xlim([19.1 19.45])
-%xlim([19.45 20])
 
 %Plot 4
 subplot(4,1,4)
@@ -82,15 +70,5 @@ grid on
 xlabel('UTC Time (hours)','Fontsize',24)
 ylabel('R_e_f_f (\mum)','Fontsize',24)
 xlim([18.5 20.75])
-%xlim([19.5 20])
-%xlim([19.1 20])
-%xlim([19.1 19.45])
-%xlim([19.45 20])
 
-%saveas(figure(1),'falcon_preliminary_quicklooks.png')
-%saveas(figure(1),'falcon_preliminary_quicklooks_labeled.png')
 saveas(figure(1),'falcon_quicklooks.png')
-%saveas(figure(1),'falcon_quicklooks_195_20.png')
-%saveas(figure(1),'falcon_quicklooks_191_20.png')
-%saveas(figure(1),'falcon_quicklooks_191_1945.png')
-%saveas(figure(1),'falcon_quicklooks_1945_20.png')
